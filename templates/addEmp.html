@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <title>Add Employee</title>
+</head>
+
+<body>
+    {% include 'navbar.html'%}
+
+    <h1 class="text-center my-3">Add New Employee</h1>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/employee/addEmp/" method="POST">
+                            {% csrf_token %}
+                            <label for="empId">Employee ID</label>
+                            <input class="form-control" type="text" id="empId" name="empId">
+                            <label for="empName">Employee Name</label>
+                            <input class="form-control" type="text" id="empName" name="empName">
+                            <label for="empPhone">Employee Phone</label>
+                            <input class="form-control" type="tel" id="empPhone" name="empPhone">
+                            <label for="empAddress">Employee Address</label>
+                            <input class="form-control" type="text" id="empAddress" name="empAddress">
+                            <br>
+                            <label for="empGender">Employee Gender</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="empGender" id="empGender" value="Male">
+                                <label class="form-check-label" for="empGender">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="empGender" id="empGender" value="Female">
+                                <label class="form-check-label" for="empGender">Female</label>
+                            </div>
+                            <br><br>
+                            <label for="empDept">Employee Department</label>
+                            <select class="form-control" id="empDept" name="empDept">
+                                <option value="">None</option>
+                                <option value="Frontend">Frontend</option>
+                                <option value="Backend">Backend</option>
+                                <option value="Tester">Tester</option>
+                                <option value="Non-Tech">Non-Tech</option>
+                            </select>
+                            <div class="container text-center mt-3">
+                                <button class="btn btn-primary">
+                                    Add Employee
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
